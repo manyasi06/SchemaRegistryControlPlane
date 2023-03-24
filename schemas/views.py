@@ -17,7 +17,7 @@ class SchemaList(generics.ListCreateAPIView):
     serializer_class = SchemaSerializer
 
     
-class SchemaDetail(generics.ListCreateAPIView):
+class SchemaDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Schema.objects.all()
     serializer_class = SchemaSerializer
     

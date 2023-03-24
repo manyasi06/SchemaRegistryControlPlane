@@ -12,7 +12,8 @@ services:
     networks:
       - sample
   zookeeper:
-    image: cp-zookeeper:latest
+    image: zookeeper:latest
+    container_name: zookeeper
     environment:
       - ZOOKEEPER_CLIENT_PORT=2181
       - ZOOKEEPER_TICK_TIME=2000
@@ -22,6 +23,7 @@ services:
       - sample
   kafka:
     image: confluentinc/cp-kafka:latest
+    container_name: kafka
     depends_on:
       - zookeeper
     ports:

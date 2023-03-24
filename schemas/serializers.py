@@ -3,15 +3,16 @@ from schemas.models import Schema
 from rest_framework import serializers
 
 class SchemaSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
     schema = serializers.CharField()
     active = serializers.BooleanField(required=True)
     name = serializers.CharField()
-    created = serializers.DateField()
-    updated = serializers.DateField(required=False,allow_null=True)
+    created = serializers.DateTimeField(required=False)
+    updated = serializers.DateTimeField(required=False,allow_null=True)
 
     
     
-    def create(self, validated_data):        
+    def create(self, validated_data):  
         return Schema.objects.create(**validated_data)
     
     def update(self, instance, validated_data):
