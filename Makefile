@@ -6,3 +6,6 @@ migrate:
 
 runserver:
 	python manage.py runserver
+
+build_dev:
+	docker build --tag schema-registry-control-plane:1.0.0
