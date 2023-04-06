@@ -14,4 +14,9 @@ class Schema(models.Model):
     updated = models.DateTimeField(default=None, null=True)
     
     
+class Transaction(models.Model):
+    id = models.IntegerField(primary_key=True,null=False)
+    status = models.TextField(max_length=60)
+    product_id = models.IntegerField()
+    created = models.DateTimeField( default=timezone.now)
 
